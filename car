@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Car Animation</title>
+    <style>
+        body {
+            margin: 0;
+            height: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .road {
+            width: 100%;
+            height: 100%;
+            background-image: url(https://i.pinimg.com/originals/1c/03/17/1c031731e89f07953ee59f0241713bf7.jpg);
+            background-position: bottom;
+            background-repeat:repeat-x ;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(65, 65, 65);
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            border-radius: 10px;
+            animation: drive 5s forwards;
+        }
+
+        .car::before, .car::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -15px;
+        }
+
+        .car::before {
+            left: 20px;
+        }
+
+        .car::after {
+            right: 20px;
+        }
+
+        @keyframes drive {
+            to {
+                left: calc(100% - 250px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="road">
+        <div class="car"></div>
+    </div>
+</body>
+</html>
